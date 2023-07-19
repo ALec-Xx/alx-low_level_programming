@@ -8,5 +8,5 @@
  */
 int _abs(int n)
 {
-	return (n * ((2 * n + 1) % 2));
+	return (n * ((n > 0) - (n < 0)));
 }
