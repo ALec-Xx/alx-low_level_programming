@@ -4,7 +4,6 @@ void print_str(va_list *ap);
 void print_float(va_list *ap);
 void print_char(va_list *ap);
 void print_int(va_list *ap);
-void print_all(const char * const format, ...);
 
 
 /**
