@@ -30,11 +30,6 @@ int main(int argc, char *argv[])
 	}
 	result = ptr.f(a, b);
 
-	if (result == 0)
-	{
-		printf("Error\n");
-		exit(100);
-	}
 	printf("%d\n", result);
 
 	return (0);
