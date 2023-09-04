@@ -1,23 +1,35 @@
 #include "main.h"
 
-
-void file_exist(int file_from, int file_to, **argv)
+/**
+ * error_file - checks if files can be opened.
+ * @file_from: file_from.
+ * @file_to: file to
+ * @argv: arguments vector.
+ */
+void file_exist(int file_from, int file_to, char *argv[])
 {
 	if (file_from == -1)
 	{
 		exit(98);
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", *argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 	}
 	if (file_to == -1)
 	{
 		exit(99);
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", *agrv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
 	}
 }
 
-int main(argc, *argv[])
+/**
+ * main - check the code for Holberton School students.
+ * @argc: number of arguments.
+ * @argv: arguments vector.
+ * Return: 0(success)
+ */
+int main(int argc, char *argv[])
 {
-	int file_to, file_from;
+	int file_to, file_from, closeFile;
+	ssize_t readFile, writeFile;
 	char *buf[1024];
 	size_t nbyte = 1024;
 
@@ -26,8 +38,8 @@ int main(argc, *argv[])
 		exit(97);
 		fprintf(stderr, "Usage: cp file_from file_to\n");
 	}
-	file_from = open(*argv[1], O_RDONLY);
-	file_to = open(*argv[2], O_CREAT | O_TRUNC | O_WRONLY | O_APPEND, 0664);	file_exist(file_from, file_to, argv);
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY | O_APPEND, 0664);	file_exist(file_from, file_to, argv);
 
 	while (nbyte)
 	{
